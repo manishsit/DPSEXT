@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE faces-config PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.0//EN"
+  "http://java.sun.com/dtd/web-facesconfig_1_0.dtd" [
+]>
+
+<faces-config>
+	<application>
+		<view-handler>org.apache.myfaces.tomahawk.application.jsp.JspTilesViewHandlerImpl
+		</view-handler>
+	</application>
+	<managed-bean>
+		<managed-bean-name>userManagementAction</managed-bean-name>
+		<managed-bean-class>org.dps.action.usermanagement.UserManagementAction
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>staticService</property-name>
+			<value>#{staticService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>userManagementService</property-name>
+			<value>#{userManagementService}</value>
+		</managed-property>
+	</managed-bean>
+
+	<navigation-rule>
+		<navigation-case>
+			<from-action>#{userManagementAction.loadAuthorRegistrationScreen}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/usermanagement/register</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<application>
+		<variable-resolver>org.springframework.web.jsf.SpringBeanVariableResolver</variable-resolver>
+	</application>
+
+</faces-config>

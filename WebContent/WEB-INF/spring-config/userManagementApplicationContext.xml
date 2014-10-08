@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="staticService" class="org.dps.service.common.impl.StaticServiceImpl">
+		<property name="staticBo" ref="staticBo" />
+	</bean>
+	<bean id="staticBo" class="org.dps.bo.common.impl.StaticBoImpl">
+		<property name="staticDao" ref="staticDao" />
+	</bean>
+	<bean id="staticDao" class="org.dps.dao.common.ibatis.SqlMapStaticDao">
+
+	</bean>
+
+
+	<bean id="sqlMapClient">
+		<property name="configLocation" value="/WEB-INF/SqlMapConfig.xml">
+		</property>
+	</bean>
+</beans>
