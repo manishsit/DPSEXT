@@ -1,5 +1,11 @@
 package org.dps.action.usermanagement;
+import java.util.List;
+
+import org.dps.constants.DPSConstants;
+import org.dps.service.common.StaticService;
 import org.dps.service.usermanagement.UserManagementService;
+import org.dps.value.common.CodeGroupValue;
+import org.dps.value.common.CodeValue;
 import org.dps.value.usermanagement.UserValue;
 
 /**
@@ -14,10 +20,10 @@ public class UserManagementAction {
 
 	private UserManagementService userManagementService;
 	private UserValue userValue;
-
-	public UserManagementAction(){
-
-	}
+	private StaticService staticService;
+	private List<CodeValue> countryList=null;
+	private List<CodeValue> languageList=null;
+	
 
 	public void finalize() throws Throwable {
 
@@ -28,7 +34,7 @@ public class UserManagementAction {
 	 * Profile link on user's home page
 	 */
 	public String deactivateProfile(){
-		return "";
+		return DPSConstants.SUCCESS;
 	}
 
 	/**
@@ -45,7 +51,12 @@ public class UserManagementAction {
 	 * will be invoked onclick of Register Me link  from Application landing page.
 	 */
 	public String loadAuthorRegistrationScreen(){
-		return "";
+		CodeGroupValue codeGroupValue = new CodeGroupValue();
+		codeGroupValue.setCodeDescription(DPSConstants.COUNTRY);
+		countryList= staticService.retrieveStaticLookUp(codeGroupValue);
+		codeGroupValue.setCodeDescription(DPSConstants.LANGUAGE);
+		languageList= staticService.retrieveStaticLookUp(codeGroupValue);
+		return DPSConstants.SUCCESS;
 	}
 
 	/**
@@ -77,7 +88,7 @@ public class UserManagementAction {
 	 * registration. Security question will be retrieved based on account id and
 	 * registered email address.
 	 */
-	public Void loadSecurityQuestionForUser(){
+	public void loadSecurityQuestionForUser(){
 
 	}
 
@@ -104,6 +115,64 @@ public class UserManagementAction {
 	 */
 	public boolean validateDuplicateEmail(){
 		return false;
+	}
+
+	public UserManagementService getUserManagementService() {
+		return userManagementService;
+	}
+
+	public void setUserManagementService(UserManagementService userManagementService) {
+		this.userManagementService = userManagementService;
+	}
+
+	public UserValue getUserValue() {
+		return userValue;
+	}
+
+	public void setUserValue(UserValue userValue) {
+		this.userValue = userValue;
+	}
+
+	/**
+	 * @return the staticService
+	 */
+	public StaticService getStaticService() {
+		return staticService;
+	}
+
+	/**
+	 * @param staticService the staticService to set
+	 */
+	public void setStaticService(StaticService staticService) {
+		this.staticService = staticService;
+	}
+
+	/**
+	 * @return the countryList
+	 */
+	public List<CodeValue> getCountryList() {
+		return countryList;
+	}
+
+	/**
+	 * @param countryList the countryList to set
+	 */
+	public void setCountryList(List<CodeValue> countryList) {
+		this.countryList = countryList;
+	}
+
+	/**
+	 * @return the languageList
+	 */
+	public List<CodeValue> getLanguageList() {
+		return languageList;
+	}
+
+	/**
+	 * @param languageList the languageList to set
+	 */
+	public void setLanguageList(List<CodeValue> languageList) {
+		this.languageList = languageList;
 	}
 
 }
