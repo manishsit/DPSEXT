@@ -8,12 +8,14 @@
 		<property name="staticDao" ref="staticDao" />
 	</bean>
 	<bean id="staticDao" class="org.dps.dao.common.ibatis.SqlMapStaticDao">
-
+		<property name="sqlMapClient" ref="sqlMapClient" />
 	</bean>
-
-
-	<bean id="sqlMapClient">
-		<property name="configLocation" value="/WEB-INF/SqlMapConfig.xml">
-		</property>
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="/WEB-INF/SqlMapConfig.xml" />
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:/comp/env/jdbc/dpsext" />
+		<property name="resourceRef" value="true" />
 	</bean>
 </beans>
