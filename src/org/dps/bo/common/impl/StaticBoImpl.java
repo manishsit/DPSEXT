@@ -5,10 +5,11 @@ package org.dps.bo.common.impl;
 
 import java.util.List;
 
+import javax.faces.model.SelectItem;
+
 import org.dps.bo.common.StaticBo;
 import org.dps.dao.common.StaticDao;
 import org.dps.value.common.CodeGroupValue;
-import org.dps.value.common.CodeValue;
 
 /**
  * @author manish
@@ -17,7 +18,7 @@ import org.dps.value.common.CodeValue;
 public class StaticBoImpl implements StaticBo{
 	private StaticDao staticDao =null;
 
-	public List<CodeValue> retrieveStaticLookUp(CodeGroupValue codeGroupValue) {
+	public List<SelectItem> retrieveStaticLookUp(CodeGroupValue codeGroupValue) {
 		return staticDao.retrieveStaticLookUp(codeGroupValue);
 	}
 

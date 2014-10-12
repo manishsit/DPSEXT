@@ -2,9 +2,11 @@ package org.dps.dao.common.ibatis;
 
 import java.util.List;
 
+import javax.faces.model.SelectItem;
+
 import org.dps.dao.common.StaticDao;
 import org.dps.value.common.CodeGroupValue;
-import org.dps.value.common.CodeValue;
+import org.springframework.dao.DataAccessException;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
 /**
@@ -12,14 +14,26 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
  * @version 1.0
  * @created 29-Sep-2014 18:37:30
  */
-public class SqlMapStaticDao extends SqlMapClientDaoSupport implements StaticDao {
+public class SqlMapStaticDao extends SqlMapClientDaoSupport implements
+		StaticDao {
 
-	/* (non-Javadoc)
-	 * @see org.dps.dao.common.StaticDao#retrieveStaticLookUp(org.dps.value.common.CodeGroupValue)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.dps.dao.common.StaticDao#retrieveStaticLookUp(org.dps.value.common
+	 * .CodeGroupValue)
 	 */
-	@Override
-	public List<CodeValue> retrieveStaticLookUp(CodeGroupValue codeGroupValue) {
-		// TODO Auto-generated method stub
-		return null;
+	@SuppressWarnings("unchecked")
+	public List<SelectItem> retrieveStaticLookUp(CodeGroupValue codeGroupValue) {
+		List<SelectItem> countryMapLookup = null;
+		try {
+			countryMapLookup = getSqlMapClientTemplate().queryForList(
+					"fetchCountryList");
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return countryMapLookup;
 	}
 }

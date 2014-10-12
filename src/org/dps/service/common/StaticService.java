@@ -5,8 +5,9 @@ package org.dps.service.common;
 
 import java.util.List;
 
+import javax.faces.model.SelectItem;
+
 import org.dps.value.common.CodeGroupValue;
-import org.dps.value.common.CodeValue;
 
 /**
  * @author manish
@@ -14,6 +15,6 @@ import org.dps.value.common.CodeValue;
  */
 public interface StaticService {
 
-	public List<CodeValue> retrieveStaticLookUp(CodeGroupValue codeGroupValue);
+	public List<SelectItem> retrieveStaticLookUp(CodeGroupValue codeGroupValue);
 
 }
