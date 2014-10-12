@@ -3,10 +3,10 @@
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@ taglib uri="http://jsftutorials.net/htmLib" prefix="htm"%>
 <f:subview id="authorReg">
-	<htm:table cellspacing="10">
+	<htm:table cellspacing="12">
 		<htm:tr>
 			<htm:td align="right">
-				<h:outputText value="Account Name" />
+				<h:outputText value="Account Name" styleClass="label_text"/>
 			</htm:td>
 			<htm:td>
 				<h:inputText value="#{userManagementAction.userValue.accountId}" styleClass="input_text"/>
@@ -14,7 +14,7 @@
 		</htm:tr>
 		<htm:tr>
 			<htm:td align="right">
-				<h:outputText value="First Name" />
+				<h:outputText value="First Name" styleClass="label_text"/>
 			</htm:td>
 			<htm:td>
 				<h:inputText value="#{userManagementAction.userValue.firstName}" styleClass="input_text"/>
@@ -22,7 +22,7 @@
 		</htm:tr>
 		<htm:tr>
 			<htm:td align="right">
-				<h:outputText value="Last Name" />
+				<h:outputText value="Last Name" styleClass="label_text"/>
 			</htm:td>
 			<htm:td>
 				<h:inputText value="#{userManagementAction.userValue.lastName}" styleClass="input_text"/>
@@ -30,7 +30,7 @@
 		</htm:tr>
 		<htm:tr>
 			<htm:td align="right">
-				<h:outputText value="Email" />
+				<h:outputText value="Email" styleClass="label_text"/>
 			</htm:td>
 			<htm:td>
 				<h:inputText value="#{userManagementAction.userValue.userEmail}" styleClass="input_text"/>
@@ -38,7 +38,7 @@
 		</htm:tr>
 		<htm:tr>
 			<htm:td align="right">
-				<h:outputText value="Country" />
+				<h:outputText value="Country" styleClass="label_text"/>
 			</htm:td>
 			<htm:td>
 				<h:selectOneMenu

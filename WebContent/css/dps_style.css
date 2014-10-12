@@ -11,6 +11,16 @@
 	background-color: #F8ECE0;
 }
 
+.label_text {
+	font-weight: 200;
+	font-size: 22px;
+	font-weight: bold;
+	font-family:serif;
+	padding: 8px;
+	font-style: oblique;
+	color: silver;
+}
+
 .tftable {
 	font-size: 12px;
 	color: #333333;
