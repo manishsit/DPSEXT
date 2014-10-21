@@ -8,6 +8,7 @@ import java.util.List;
 import javax.faces.model.SelectItem;
 
 import org.dps.bo.common.StaticBo;
+import org.dps.exception.DPSSystemException;
 import org.dps.service.common.StaticService;
 import org.dps.value.common.CodeGroupValue;
 
@@ -18,7 +19,7 @@ import org.dps.value.common.CodeGroupValue;
 public class StaticServiceImpl implements StaticService{
 	private StaticBo staticBo=null;
 
-	public List<SelectItem> retrieveStaticLookUp(CodeGroupValue codeGroupValue) {
+	public List<SelectItem> retrieveStaticLookUp(CodeGroupValue codeGroupValue) throws DPSSystemException {
 		return staticBo.retrieveStaticLookUp(codeGroupValue);
 	}
 

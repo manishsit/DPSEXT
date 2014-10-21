@@ -5,6 +5,7 @@ import java.util.List;
 import javax.faces.model.SelectItem;
 
 import org.dps.dao.common.StaticDao;
+import org.dps.exception.DPSSystemException;
 import org.dps.value.common.CodeGroupValue;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
@@ -25,14 +26,13 @@ public class SqlMapStaticDao extends SqlMapClientDaoSupport implements
 	 * .CodeGroupValue)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<SelectItem> retrieveStaticLookUp(CodeGroupValue codeGroupValue) {
+	public List<SelectItem> retrieveStaticLookUp(CodeGroupValue codeGroupValue) throws DPSSystemException {
 		List<SelectItem> countryMapLookup = null;
 		try {
 			countryMapLookup = getSqlMapClientTemplate().queryForList(
 					"fetchCountryList");
 		} catch (DataAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DPSSystemException(e);
 		}
 		return countryMapLookup;
 	}

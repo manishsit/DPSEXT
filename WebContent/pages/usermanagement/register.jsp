@@ -38,15 +38,28 @@
 		</htm:tr>
 		<htm:tr>
 			<htm:td align="right">
+				<h:outputText value="Contact Number" styleClass="label_text"/>
+			</htm:td>
+			<htm:td>
+				<h:inputText value="#{userManagementAction.userValue.userContactNum}" styleClass="input_text"/>
+			</htm:td>
+		</htm:tr>
+		<htm:tr>
+			<htm:td align="right">
 				<h:outputText value="Country" styleClass="label_text"/>
 			</htm:td>
 			<htm:td>
 				<h:selectOneMenu
-					value="#{userManagementAction.userValue.userCountry}">
+					value="#{userManagementAction.userValue.userCountry}" styleClass="input_select">
 					<f:selectItem itemLabel="--Select--" itemValue=""/>
 					<f:selectItems value="#{userManagementAction.countryList}" />
 				</h:selectOneMenu>
 			</htm:td>
+		</htm:tr>
+		<htm:tr>
+		<htm:td align="right" colspan="2">
+		<h:commandButton value="Sign Up" action="" styleClass="form-submit-button"/>
+		</htm:td>
 		</htm:tr>
 	</htm:table>
 </f:subview>

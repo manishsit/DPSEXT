@@ -5,6 +5,7 @@ import java.util.List;
 import javax.faces.model.SelectItem;
 
 import org.dps.constants.DPSConstants;
+import org.dps.exception.DPSSystemException;
 import org.dps.service.common.StaticService;
 import org.dps.service.usermanagement.UserManagementService;
 import org.dps.value.common.CodeGroupValue;
@@ -27,8 +28,11 @@ public class UserManagementAction {
 	private List<SelectItem> countryList = null;
 	private List<SelectItem> languageList = null;
 
-	public void finalize() throws Throwable {
-
+	/**
+	 * This method is used to initialize the instance variables
+	 */
+	private void initializeObjects() {
+		userValue = new UserValue();
 	}
 
 	/**
@@ -54,11 +58,17 @@ public class UserManagementAction {
 	 * landing page.
 	 */
 	public String loadAuthorRegistrationScreen() {
-		CodeGroupValue codeGroupValue = new CodeGroupValue();
-		codeGroupValue.setCodeDescription(DPSConstants.COUNTRY);
-		countryList = staticService.retrieveStaticLookUp(codeGroupValue);
-		codeGroupValue.setCodeDescription(DPSConstants.LANGUAGE);
-		languageList = staticService.retrieveStaticLookUp(codeGroupValue);
+		try {
+			initializeObjects();
+			CodeGroupValue codeGroupValue = new CodeGroupValue();
+			codeGroupValue.setCodeDescription(DPSConstants.COUNTRY);
+			countryList = staticService.retrieveStaticLookUp(codeGroupValue);
+			codeGroupValue.setCodeDescription(DPSConstants.LANGUAGE);
+			languageList = staticService.retrieveStaticLookUp(codeGroupValue);
+		} catch (DPSSystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return DPSConstants.SUCCESS;
 	}
 
