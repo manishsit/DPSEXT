@@ -15,4 +15,5 @@ public class DPSConstants {
 	// Static lookup contants
 	public static final String COUNTRY = "country";
 	public static final String LANGUAGE = "language";
+	public static final String SECRET_QUES = "secretQuestion";
 }

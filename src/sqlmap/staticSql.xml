@@ -3,8 +3,14 @@
 PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap>
-	<select id="fetchCountryList" resultClass="javax.faces.model.SelectItem">
-		SELECT code_grp_id AS value,
-		code_grp_desc AS label FROM code_group order by label
+	<select id="fetchCodeList" resultClass="javax.faces.model.SelectItem" parameterClass="org.dps.value.common.CodeGroupValue">
+		SELECT cv.code_value_id AS value,cv.code_value_desc AS label 
+		FROM code_group cg,
+		code_value cv 
+		where cv.code_grp_id=cg.code_grp_id
+		and cg.code_grp_desc=upper(#codeDescription#)
+		and cv.active=cg.active
+		and cg.active=1
+		order by label
 	</select>
 </sqlMap>

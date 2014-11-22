@@ -1,36 +1,29 @@
 package org.dps.value.usermanagement;
+
+import java.io.Serializable;
+
 import org.dps.value.common.BaseValue;
+import org.dps.value.login.LoginValue;
 
 /**
  * @author sitman
  * @version 1.0
  * @created 29-Sep-2014 18:37:31
  */
-public class UserValue extends BaseValue {
+public class UserValue extends BaseValue implements Serializable {
 
-	private String authoringLanguage;
-	private String accountId;
-	private String dateOfBirth;
-	private String firstName;
-	private boolean isProfilePicAvailable;
-	private String lastName;
-	private String profilePicPath;
-	private String userContactNum;
-	private String userCountry;
-	private String userEmail;
-	private String userId;
-	private String userPassword;
-	private String userPhysicalAddress;
-	private String userSecretAnswer;
-	private String userSecretQuestion;
-
-	public UserValue(){
-
-	}
-
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
+	private static final long serialVersionUID = 7318584257214786561L;
+	private String authoringLanguage = null;
+	private String accountId = null;
+	private String dateOfBirth = null;
+	private String firstName = null;
+	private boolean isProfilePicAvailable = false;
+	private String lastName = null;
+	private String profilePicPath = null;
+	private String userContactNum = null;
+	private String userCountry = null;
+	private String userPhysicalAddress = null;
+	private LoginValue loginValue = null;
 
 	/**
 	 * @return the authoringLanguage
@@ -40,7 +33,8 @@ public class UserValue extends BaseValue {
 	}
 
 	/**
-	 * @param authoringLanguage the authoringLanguage to set
+	 * @param authoringLanguage
+	 *            the authoringLanguage to set
 	 */
 	public void setAuthoringLanguage(String authoringLanguage) {
 		this.authoringLanguage = authoringLanguage;
@@ -54,7 +48,8 @@ public class UserValue extends BaseValue {
 	}
 
 	/**
-	 * @param dateOfBirth the dateOfBirth to set
+	 * @param dateOfBirth
+	 *            the dateOfBirth to set
 	 */
 	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
@@ -68,7 +63,8 @@ public class UserValue extends BaseValue {
 	}
 
 	/**
-	 * @param firstName the firstName to set
+	 * @param firstName
+	 *            the firstName to set
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -82,7 +78,8 @@ public class UserValue extends BaseValue {
 	}
 
 	/**
-	 * @param isProfilePicAvailable the isProfilePicAvailable to set
+	 * @param isProfilePicAvailable
+	 *            the isProfilePicAvailable to set
 	 */
 	public void setProfilePicAvailable(boolean isProfilePicAvailable) {
 		this.isProfilePicAvailable = isProfilePicAvailable;
@@ -96,7 +93,8 @@ public class UserValue extends BaseValue {
 	}
 
 	/**
-	 * @param lastName the lastName to set
+	 * @param lastName
+	 *            the lastName to set
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
@@ -110,7 +108,8 @@ public class UserValue extends BaseValue {
 	}
 
 	/**
-	 * @param profilePicPath the profilePicPath to set
+	 * @param profilePicPath
+	 *            the profilePicPath to set
 	 */
 	public void setProfilePicPath(String profilePicPath) {
 		this.profilePicPath = profilePicPath;
@@ -124,7 +123,8 @@ public class UserValue extends BaseValue {
 	}
 
 	/**
-	 * @param userContactNum the userContactNum to set
+	 * @param userContactNum
+	 *            the userContactNum to set
 	 */
 	public void setUserContactNum(String userContactNum) {
 		this.userContactNum = userContactNum;
@@ -138,52 +138,11 @@ public class UserValue extends BaseValue {
 	}
 
 	/**
-	 * @param userCountry the userCountry to set
+	 * @param userCountry
+	 *            the userCountry to set
 	 */
 	public void setUserCountry(String userCountry) {
 		this.userCountry = userCountry;
-	}
-
-	/**
-	 * @return the userEmail
-	 */
-	public String getUserEmail() {
-		return userEmail;
-	}
-
-	/**
-	 * @param userEmail the userEmail to set
-	 */
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
-
-	/**
-	 * @return the userId
-	 */
-	public String getUserId() {
-		return userId;
-	}
-
-	/**
-	 * @param userId the userId to set
-	 */
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	/**
-	 * @return the userPassword
-	 */
-	public String getUserPassword() {
-		return userPassword;
-	}
-
-	/**
-	 * @param userPassword the userPassword to set
-	 */
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
 	}
 
 	/**
@@ -194,38 +153,11 @@ public class UserValue extends BaseValue {
 	}
 
 	/**
-	 * @param userPhysicalAddress the userPhysicalAddress to set
+	 * @param userPhysicalAddress
+	 *            the userPhysicalAddress to set
 	 */
 	public void setUserPhysicalAddress(String userPhysicalAddress) {
 		this.userPhysicalAddress = userPhysicalAddress;
-	}
-
-	/**
-	 * @return the userSecretAnswer
-	 */
-	public String getUserSecretAnswer() {
-		return userSecretAnswer;
-	}
-
-	/**
-	 * @param userSecretAnswer the userSecretAnswer to set
-	 */
-	public void setUserSecretAnswer(String userSecretAnswer) {
-		this.userSecretAnswer = userSecretAnswer;
-	}
-
-	/**
-	 * @return the userSecretQuestion
-	 */
-	public String getUserSecretQuestion() {
-		return userSecretQuestion;
-	}
-
-	/**
-	 * @param userSecretQuestion the userSecretQuestion to set
-	 */
-	public void setUserSecretQuestion(String userSecretQuestion) {
-		this.userSecretQuestion = userSecretQuestion;
 	}
 
 	/**
@@ -236,10 +168,26 @@ public class UserValue extends BaseValue {
 	}
 
 	/**
-	 * @param accountId the accountId to set
+	 * @param accountId
+	 *            the accountId to set
 	 */
 	public void setAccountId(String accountId) {
 		this.accountId = accountId;
+	}
+
+	/**
+	 * @return the loginValue
+	 */
+	public LoginValue getLoginValue() {
+		return loginValue;
+	}
+
+	/**
+	 * @param loginValue
+	 *            the loginValue to set
+	 */
+	public void setLoginValue(LoginValue loginValue) {
+		this.loginValue = loginValue;
 	}
 
 }

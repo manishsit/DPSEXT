@@ -28,7 +28,7 @@ public class UserManagementBoImpl extends UserManagementBo {
 	 * @param userValue
 	 */
 	public void createUser(UserValue userValue){
-
+		userManagementDao.createUser(userValue);
 	}
 
 	/**

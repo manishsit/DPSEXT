@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/js/script.js"></script>
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/dps_style.css" />
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/scripts/common.js"></script>
 <title><tiles:getAsString name="title" ignore="true" /></title>
 </head>
 <body>

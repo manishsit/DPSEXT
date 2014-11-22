@@ -26,11 +26,12 @@ public class SqlMapStaticDao extends SqlMapClientDaoSupport implements
 	 * .CodeGroupValue)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<SelectItem> retrieveStaticLookUp(CodeGroupValue codeGroupValue) throws DPSSystemException {
+	public List<SelectItem> retrieveStaticLookUp(CodeGroupValue codeGroupValue)
+			throws DPSSystemException {
 		List<SelectItem> countryMapLookup = null;
 		try {
 			countryMapLookup = getSqlMapClientTemplate().queryForList(
-					"fetchCountryList");
+					"fetchCodeList", codeGroupValue);
 		} catch (DataAccessException e) {
 			throw new DPSSystemException(e);
 		}

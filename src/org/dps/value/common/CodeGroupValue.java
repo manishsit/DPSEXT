@@ -3,12 +3,15 @@
  */
 package org.dps.value.common;
 
+import java.io.Serializable;
+
 /**
  * @author manish
  *
  */
-public class CodeGroupValue extends BaseValue {
+public class CodeGroupValue extends BaseValue implements Serializable {
 
+	private static final long serialVersionUID = -2432005763230252567L;
 	private String codeGroupoId = null;
 	private String codeDescription = null;
 

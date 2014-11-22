@@ -30,6 +30,11 @@
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/usermanagement/register</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-action>#{userManagementAction.registerAuthor}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/usermanagement/success</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 	<application>
 		<variable-resolver>org.springframework.web.jsf.SpringBeanVariableResolver</variable-resolver>

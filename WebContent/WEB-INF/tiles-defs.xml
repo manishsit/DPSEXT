@@ -17,4 +17,10 @@
 		<put name="body" value="/pages/usermanagement/register.jsp" />
 	</definition>
 
+	<definition name="pages/usermanagement/success.tiles"
+		extends="layout">
+		<put name="title" type="string" value="Register Author Success" />
+		<put name="body" value="/pages/usermanagement/success.jsp" />
+	</definition>
+
 </tiles-definitions>

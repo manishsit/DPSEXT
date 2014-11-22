@@ -28,7 +28,7 @@ public class UserManagementServiceImpl implements UserManagementService {
 	 * @param userValue
 	 */
 	public void createUser(UserValue userValue){
-
+		userManagementBo.createUser(userValue);
 	}
 
 	/**

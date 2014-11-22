@@ -9,6 +9,7 @@ import org.dps.exception.DPSSystemException;
 import org.dps.service.common.StaticService;
 import org.dps.service.usermanagement.UserManagementService;
 import org.dps.value.common.CodeGroupValue;
+import org.dps.value.login.LoginValue;
 import org.dps.value.usermanagement.UserValue;
 
 /**
@@ -27,12 +28,14 @@ public class UserManagementAction {
 	private StaticService staticService;
 	private List<SelectItem> countryList = null;
 	private List<SelectItem> languageList = null;
+	private List<SelectItem> secQuesList = null;
 
 	/**
 	 * This method is used to initialize the instance variables
 	 */
 	private void initializeObjects() {
 		userValue = new UserValue();
+		userValue.setLoginValue(new LoginValue());
 	}
 
 	/**
@@ -65,6 +68,8 @@ public class UserManagementAction {
 			countryList = staticService.retrieveStaticLookUp(codeGroupValue);
 			codeGroupValue.setCodeDescription(DPSConstants.LANGUAGE);
 			languageList = staticService.retrieveStaticLookUp(codeGroupValue);
+			codeGroupValue.setCodeDescription(DPSConstants.SECRET_QUES);
+			secQuesList = staticService.retrieveStaticLookUp(codeGroupValue);
 		} catch (DPSSystemException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -114,7 +119,8 @@ public class UserManagementAction {
 	 * validation message.
 	 */
 	public String registerAuthor() {
-		return "";
+		userManagementService.createUser(userValue);
+		return DPSConstants.SUCCESS;
 	}
 
 	/**
@@ -193,6 +199,21 @@ public class UserManagementAction {
 	 */
 	public void setLanguageList(List<SelectItem> languageList) {
 		this.languageList = languageList;
+	}
+
+	/**
+	 * @return the secQuesList
+	 */
+	public List<SelectItem> getSecQuesList() {
+		return secQuesList;
+	}
+
+	/**
+	 * @param secQuesList
+	 *            the secQuesList to set
+	 */
+	public void setSecQuesList(List<SelectItem> secQuesList) {
+		this.secQuesList = secQuesList;
 	}
 
 }
